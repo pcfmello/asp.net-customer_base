@@ -26,5 +26,10 @@ namespace Aula1AspNetMVC.Controllers
 
             return View();
         }
+
+        public ActionResult Teste()
+        {
+            return View("Index");
+        }
     }
 }
