@@ -15,19 +15,6 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1AspNetMVCContext db = new Aula1AspNetMVCContext();
 
-        public ActionResult Teste()
-        {
-            ViewBag.titulo = "Teste";
-            ViewBag.cidades = new List<SelectListItem> {
-                new SelectListItem { Value = "1", Text = "Florianopolis" },
-                new SelectListItem { Value = "2", Text = "São José" },
-                new SelectListItem { Value = "3", Text = "Paliosa" },
-                new SelectListItem { Value = "4", Text = "Biguaçu" }
-            };
-
-            return View(db.Cliente.ToList());
-        }
-
         // GET: Clientes
         public ActionResult Index()
         {
@@ -60,7 +47,7 @@ namespace Aula1AspNetMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email")] Cliente cliente) // Não é necessário usar o bind se for receber todos os campos do model
+        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Email")] Cliente cliente) // Não é necessário usar o bind se for receber todos os campos do model mas isso vulnerabiliza a aplicação
         {
             if (ModelState.IsValid)
             {
